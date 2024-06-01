@@ -36,6 +36,7 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
+-- To use it on ubuntu install also xclip. sudo apt install xclip
 vim.opt.clipboard = 'unnamedplus'
 
 -- stop p from overwriting buffer
