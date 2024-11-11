@@ -51,6 +51,7 @@ vim.keymap.set('x', 'p', 'P', { noremap = true })
 
 -- stop c from overwriting buffer
 vim.keymap.set('v', 'c', [["_d]])
+
 -- tab spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -81,6 +82,7 @@ if vim.fn.has 'wsl' == 1 then
     }
   end
 end
+
 -- Enable break indent
 vim.opt.breakindent = true
 
