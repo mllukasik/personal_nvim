@@ -39,12 +39,18 @@ vim.opt.showmode = false
 -- To use it on ubuntu install also xclip. sudo apt install xclip
 vim.opt.clipboard = 'unnamedplus'
 
+-- map shift + insert as paste
+if vim.fn.has 'windows' == 1 then
+  vim.keymap.set('n', '<S-Insert>', '"+p', { noremap = true, silent = true })
+  vim.keymap.set('v', '<S-Insert>', '"+p', { noremap = true, silent = true })
+  vim.keymap.set('i', '<S-Insert>', '<C-r>+', { noremap = true, silent = true })
+end
+
 -- stop p from overwriting buffer
 vim.keymap.set('x', 'p', 'P', { noremap = true })
 
 -- stop c from overwriting buffer
 vim.keymap.set('v', 'c', [["_d]])
-
 -- tab spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -75,12 +81,15 @@ if vim.fn.has 'wsl' == 1 then
     }
   end
 end
-
 -- Enable break indent
 vim.opt.breakindent = true
 
 -- Save undo history
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+if vim.fn.has 'windows' == 1 then
+  vim.opt.undodir = os.getenv 'localappdata' .. '/nvim-data/undodir'
+else
+  vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+end
 vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
