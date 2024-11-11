@@ -87,7 +87,9 @@ end
 vim.opt.breakindent = true
 
 -- Save undo history
-if vim.fn.has 'windows' == 1 then
+if vim.fn.has 'wsl' == 1 then
+  vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+elseif vim.fn.has 'windows' == 1 then
   vim.opt.undodir = os.getenv 'localappdata' .. '/nvim-data/undodir'
 else
   vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
