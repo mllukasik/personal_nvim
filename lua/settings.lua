@@ -1,6 +1,3 @@
--- Make relative line numbers default
-vim.opt.relativenumber = true
-
 -- Change clopboard for better wsl integration
 -- requires wl-clipboard installed
 if vim.fn.has 'wsl' == 1 then
@@ -24,3 +21,4 @@ vim.keymap.set('v', 'c', [["_d]])
 
 -- Closing current buffor
 vim.keymap.set('n', '<C-w>', vim.cmd.Ex)
+
